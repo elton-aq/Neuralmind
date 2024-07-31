@@ -23,6 +23,9 @@ writer = index.writer()
 
 # Função de pré-processamento do texto
 def preprocess_text(text):
+    """
+    Função para remover informações irrelevantes do texto e dividir o texto em linhas.
+    """
     text = re.sub(r'\d{2}/\d{2}/\d{4}, \d{2}:\d{2}.*? \d{1,3}/\d{1,3}', '', text, flags=re.DOTALL)
     text = text.replace('\xa0', ' ')
     text = text.lower()
@@ -35,13 +38,11 @@ def preprocess_text(text):
         line = line.strip()  # Remove espaços em branco no início e no fim
         if line:  # Se a linha não estiver vazia
             if line[-1] in ['.', ':', ';', '-', '!', '?']:
-                # Adiciona a linha atual ao resultado se terminar com um dos sinais de pontuação
                 if current_line:
                     current_line += ' ' + line
                     processed_lines.append(current_line)
                 current_line = ''
             else:
-                # Adiciona a linha ao texto da linha anterior se não terminar com sinal de pontuação
                 current_line += ' ' + line
     
     # Adiciona a última linha se houver
@@ -50,23 +51,25 @@ def preprocess_text(text):
     
     return processed_lines
 
-# Função para extrair texto de um PDF
 def extract_text_from_pdf(pdf_path):
-    texto_total = ""
-    with open(pdf_path, 'rb') as arquivo_pdf:
-        leitor = PyPDF2.PdfReader(arquivo_pdf)
-        for pagina in leitor.pages:
-            texto_total += pagina.extract_text() + "\n"
+    """
     
-    documentos = preprocess_text(texto_total)
+    """
+    texto_total = ""
+    with open(pdf_path, 'rb') as file:
+        reader = PyPDF2.PdfReader(file)
+        for page in reader.pages:
+            texto_total += page.extract_text() + "\n"
+    
+    documents = preprocess_text(texto_total)
     
     # Adicionar cada linha ao índice como um documento separado
-    for doc in documentos:
+    for doc in documents:
         if doc.strip():  # Verifica se a linha não está vazia
             writer.add_document(content=doc)
     writer.commit()
 
-    return documentos
+    return documents
 
 # Função para recuperar documentos relevantes
 def retrieve_documents(query_str):
