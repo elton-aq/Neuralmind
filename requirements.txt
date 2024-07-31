@@ -1,0 +1,5 @@
+streamlit
+whoosh
+requests
+PyPDF2
+groq
