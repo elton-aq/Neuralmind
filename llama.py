@@ -105,7 +105,7 @@ def generate_answer_llama(question, context):
         return "Houve um problema com a requisição à API."
 
 # Caminho para o arquivo PDF
-pdf_path = '/home/elton/Documentos/Pessoal/Entrevistas/Neuralmint/Procuradoria Geral - Normas.pdf'
+pdf_path = 'Procuradoria Geral - Normas.pdf'
 extract_text_from_pdf(pdf_path)
 
 # Streamlit app
