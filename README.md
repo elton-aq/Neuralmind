@@ -1,5 +1,7 @@
 # Relatório do Projeto: Construção de um Chatbot para o Vestibular da Unicamp 2025
 
+## [Chatbot](https://neuralmind-d62thqvrmakhyf7ih3byy4.streamlit.app)
+
 ## 1. Introdução
 
 ### Objetivo do Projeto
@@ -15,7 +17,7 @@ O projeto envolve a construção de um assistente conversacional usando um model
 - **Modelos de Linguagem:** LLaMA3-70B
 - **Frameworks de Chatbot:** Langchain, Streamlit
 - **Ferramentas de Busca:** Whoosh
-- **Plataforma de Hospedagem:** Streamlit
+- **Plataforma de Hospedagem:** Streamlit Share
 
 ### Desenvolvimento do Chatbot
 
