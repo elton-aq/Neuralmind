@@ -42,3 +42,8 @@ A arquitetura inclui:
 - **Função de Extração de Texto:** Extrai texto de um PDF.
 - **Função de Recuperação de Documentos:** Recupera documentos relevantes com base numa query.
 - **Função de Geração de Resposta:** Utiliza o modelo LLaMA3-70B para gerar respostas a partir do contexto.
+
+## 4. Conclusão
+
+Apesar de notaveis resultados satisfatórios na planilha, em algumas ocasiões, a busca por correspondências para a construção do contexto revelou-se ineficaz. Isso sugere que o tratamento dos documentos ou a busca por sinônimos precisam ser mais aprofundados e aprimorados.
+O uso de bibliotecas como NLTK, integradas com bancos de dados de sinônimos ou até mesmo outras LLMs dedicadas à geração de sinônimos, pode tornar a busca mais efetiva. Isso pode ser uma consideração valiosa para futuras versões do código.
